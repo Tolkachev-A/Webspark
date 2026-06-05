@@ -67,6 +67,14 @@ async function loadPosts() {
 
 function renderPosts() {
   const container = document.getElementById('posts-container')
+
+  // Если посты уже отрендерены, просто меняем класс контейнера
+  if (container.children.length > 0 && container.children.length === filteredPosts.length) {
+    container.className = `posts-${currentView}`
+    return
+  }
+
+  // Иначе рендерим посты заново
   container.innerHTML = ''
   container.className = `posts-${currentView}`
 
@@ -80,49 +88,26 @@ function createPostElement(post) {
   const article = document.createElement('article')
   article.className = 'post'
 
-  if (currentView === 'list') {
-    article.innerHTML = `
-      <div class="post__gallery">
-        ${createPictureElement(post.srcSet)}
-      </div>
+  article.innerHTML = `
+    <div class="post__gallery">
+      ${createPictureElement(post.srcSet)}
+    </div>
 
-      <div class="post__content">
-        <h2 class="post__title">${post.title}</h2>
-        <time class="post__date">${post.date}</time>
-        <div class="post__stats">
-          <span class="stat">❤️ ${post.likes}</span>
-          <span class="stat">💬 ${post.comments}</span>
-        </div>
-        <div class="post__meta">
-          <span class="likes">❤️ ${post.shares}</span>
-          <span class="views">👁️ ${post.views}</span>
-        </div>
-        <p class="post__upload">Image upload</p>
-        <time class="post__upload-date">${post.uploadDate}</time>
+    <div class="post__content">
+      <h2 class="post__title">${post.title}</h2>
+      <time class="post__date">${post.date}</time>
+      <div class="post__stats">
+        <span class="stat">❤️ ${post.likes}</span>
+        <span class="stat">💬 ${post.comments}</span>
       </div>
-    `
-  } else {
-    article.innerHTML = `
-      <div class="post__gallery">
-        ${createPictureElement(post.srcSet)}
+      <div class="post__meta">
+        <span class="likes">❤️ ${post.shares}</span>
+        <span class="views">👁️ ${post.views}</span>
       </div>
-
-      <div class="post__content">
-        <h2 class="post__title">${post.title}</h2>
-        <time class="post__date">${post.date}</time>
-        <div class="post__stats">
-          <span class="stat">❤️ ${post.likes}</span>
-          <span class="stat">💬 ${post.comments}</span>
-        </div>
-        <div class="post__meta">
-          <span class="likes">❤️ ${post.shares}</span>
-          <span class="views">👁️ ${post.views}</span>
-        </div>
-        <p class="post__upload">Image upload</p>
-        <time class="post__upload-date">${post.uploadDate}</time>
-      </div>
-    `
-  }
+      <p class="post__upload">Image upload</p>
+      <time class="post__upload-date">${post.uploadDate}</time>
+    </div>
+  `
 
   return article
 }
