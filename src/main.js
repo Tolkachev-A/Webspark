@@ -14,14 +14,13 @@ function initDatePickers() {
   const dateToInput = document.querySelector('.date-to')
 
   const fromPicker = flatpickr(dateFromInput, {
-    dateFormat: 'Y-m-d',
+    dateFormat: 'd_m_Y',
     onChange: function(selectedDates) {
       if (selectedDates[0]) {
         dateFromValue = selectedDates[0]
-        dateFromInput.value = formatDate(selectedDates[0])
         if (dateToValue && dateFromValue > dateToValue) {
           dateToValue = dateFromValue
-          dateToInput.value = formatDate(dateToValue)
+          toPicker.setDate(dateToValue)
         }
         toPicker.set('minDate', dateFromValue)
         if (dateToValue) {
@@ -32,14 +31,13 @@ function initDatePickers() {
   })
 
   const toPicker = flatpickr(dateToInput, {
-    dateFormat: 'Y-m-d',
+    dateFormat: 'd_m_Y',
     onChange: function(selectedDates) {
       if (selectedDates[0]) {
         dateToValue = selectedDates[0]
-        dateToInput.value = formatDate(selectedDates[0])
         if (dateFromValue && dateToValue < dateFromValue) {
           dateFromValue = dateToValue
-          dateFromInput.value = formatDate(dateFromValue)
+          fromPicker.setDate(dateFromValue)
         }
         fromPicker.set('maxDate', dateToValue)
         if (dateFromValue) {
@@ -54,7 +52,7 @@ function formatDate(date) {
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
-  return `${day}.${month}.${year}`
+  return `${day}_${month}_${year}`
 }
 
 function resetFilters() {
