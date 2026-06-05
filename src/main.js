@@ -94,18 +94,26 @@ function createPostElement(post) {
     </div>
 
     <div class="post__content">
-      <h2 class="post__title">${post.title}</h2>
-      <time class="post__date">${post.date}</time>
-      <div class="post__stats">
-        <span class="stat">❤️ ${post.likes}</span>
-        <span class="stat">💬 ${post.comments}</span>
-      </div>
+        <div>
+        <h2 class="post__title">${post.title}</h2>
+
       <div class="post__meta">
-        <span class="likes">❤️ ${post.shares}</span>
-        <span class="views">👁️ ${post.views}</span>
+        <p class="post__like">${post.likes}</p>
+        <p class="post__messages">${post.comments}</p>
       </div>
-      <p class="post__upload">Image upload</p>
+    </div>
+      <div>
+      <h2 class="post__title">${post.date}</h2>
+      <div class="post__meta">
+        <span class="post__like">${post.shares}</span>
+        <span class="post__messages">${post.views}</span>
+      </div>
+</div>
+       <div>
+        <h2 class="post__title">Image upload</h2>
       <time class="post__upload-date">${post.uploadDate}</time>
+</div>
+
     </div>
   `
 
