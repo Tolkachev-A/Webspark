@@ -4,13 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webspark</title>
-    <link rel="stylesheet" href="/src/style.scss">
+    <link rel="preload" href="src/assets/fonts/roboto-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="src/assets/fonts/roboto-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="src/assets/fonts/montserrat-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="src/styles/index.scss">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-    <div id="app">
-        <h1>Webspark</h1>
-        <input type="text" id="datepicker" placeholder="Выберите дату">
+
+<header class="header">
+    <div class="container">
+        <div class="header__top">
+            <div class="header__logo" >
+                <svg width="138" height="138" viewBox="0 0 138 138" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M56.5 7.217a25 25 0 0 1 25 0l34.756 20.066a25 25 0 0 1 12.5 21.65v40.133a25 25 0 0 1-12.5 21.651L81.5 130.783a25 25 0 0 1-25 0l-34.756-20.066a25 25 0 0 1-12.5-21.65V48.933a25 25 0 0 1 12.5-21.65z" fill="#fff"/><path d="M128.756 88.532v.534a25 25 0 0 1-12.5 21.651L81.5 130.783a25 25 0 0 1-25 0l-34.756-20.066a25 25 0 0 1-1.668-1.053L17.5 101 26 68l7.5-12 22 22.5 27-40z" fill="#066c61"/><path d="M18.173 108.216a25 25 0 0 1-7.634-11.207L10.5 96.5c1.167-13 6.2-39.7 17-42.5 14-3.63 21 42.5 21 42.5s6.22-64.244 25.5-63c15.5 1 21.5 33 17.5 91.5l-.02.022-9.98 5.761a25 25 0 0 1-10.908 3.299c6.974-12.139 6.314-60.063 2.908-77.582-1.992 5.516-3.561 14-5.254 23.157-3.833 20.725-8.302 44.889-19.746 45.843a4.8 4.8 0 0 1-1.26-.063l-3.786-2.186C36.248 116.272 30.68 94.856 28.5 83c-.397 10.72-4.439 22.982-6.455 27.891l-.3-.174q-.393-.227-.773-.465z" fill="#b3dbc9"/></svg>
+            </div>
+            <div class="header__content">
+                <div class="header__info">
+                    <h1>monblanproject</h1>
+                    <span class="badge">Start on 17-02-2016</span>
+                </div>
+
+                <div class="header__stats">
+                    <div class="stat">
+                        <span class="stat__number">870</span>
+                         posts
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">11,787</span>
+                         followers
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">112</span>
+                       following
+                    </div>
+                </div>
+                <div class="filters">
+                    <p class="date-label">Date</p>
+                    <div class="date-inputs">
+                        <div class="date-input-wrapper">
+                            <input type="text" placeholder="from" class="date-input date-from" readonly>
+                            <button class="date-btn clear" aria-label="Clear date">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.657 16.243 13.414 12l4.243-4.243-1.414-1.414L12 10.586 7.757 6.343 6.343 7.757 10.586 12l-4.243 4.243 1.414 1.414L12 13.414l4.243 4.243z" fill="#5f5f5f"/></svg>
+                            </button>
+                            <button class="date-btn" aria-label="Open calendar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z" fill="#5f5f5f"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2M19 8l.001 12H5V8z" fill="#5f5f5f"/></svg>
+                            </button>
+                        </div>
+                        <div class="date-input-wrapper">
+                            <input type="text" placeholder="to" class="date-input date-to" readonly>
+                            <button class="date-btn clear" aria-label="Clear date">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.657 16.243 13.414 12l4.243-4.243-1.414-1.414L12 10.586 7.757 6.343 6.343 7.757 10.586 12l-4.243 4.243 1.414 1.414L12 13.414l4.243 4.243z" fill="#5f5f5f"/></svg>
+                            </button>
+                            <button class="date-btn" aria-label="Open calendar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z" fill="#5f5f5f"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2M19 8l.001 12H5V8z" fill="#5f5f5f"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
-    <script type="module" src="/src/main.js"></script>
+</header>
+
+<main class="main">
+    <div class="container">
+        <div class="view-toggle">
+            <button class="view-btn grid active" data-view="grid" id="grid-btn">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="8" width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="16" width="6" height="6" fill="#3D8EDA"/>
+                    <rect y="8" width="6" height="6" fill="#3D8EDA"/>
+                    <rect y="16" width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="8" y="8" width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="8" y="16" width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="16" y="8" width="6" height="6" fill="#3D8EDA"/>
+                    <rect x="16" y="16" width="6" height="6" fill="#3D8EDA"/>
+                </svg>
+
+            </button>
+            <button class="view-btn list" data-view="list" id="list-btn"><svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="6" height="6" fill="#3D8EDA"/>
+                <rect y="8" width="6" height="6" fill="#3D8EDA"/>
+                <rect y="16" width="6" height="6" fill="#3D8EDA"/>
+                <rect x="9" y="10" width="15" height="2" fill="#3D8EDA"/>
+                <rect x="9" y="18" width="15" height="2" fill="#3D8EDA"/>
+                <rect x="9" y="2" width="15" height="2" fill="#3D8EDA"/>
+            </svg>
+            </button>
+        </div>
+        <div id="posts-container" class="posts-grid"></div>
+    </div>
+</main>
+
+<button id="load-more" class="load-more">LOAD MORE</button>
+
+
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>
