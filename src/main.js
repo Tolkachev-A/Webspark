@@ -10,12 +10,20 @@ let visibleCount = 9
 const POSTS_PER_LOAD = 9
 
 function initDatePickers() {
-  flatpickr('.date-from', {
+  const dateFromInput = document.querySelector('.date-from')
+  const dateToInput = document.querySelector('.date-to')
+
+  const fromPicker = flatpickr(dateFromInput, {
     dateFormat: 'Y-m-d',
     onChange: function(selectedDates) {
       if (selectedDates[0]) {
         dateFromValue = selectedDates[0]
-        document.querySelector('.date-from').value = formatDate(selectedDates[0])
+        dateFromInput.value = formatDate(selectedDates[0])
+        if (dateToValue && dateFromValue > dateToValue) {
+          dateToValue = dateFromValue
+          dateToInput.value = formatDate(dateToValue)
+        }
+        toPicker.set('minDate', dateFromValue)
         if (dateToValue) {
           filterByDate(dateFromValue, dateToValue)
         }
@@ -23,12 +31,17 @@ function initDatePickers() {
     }
   })
 
-  flatpickr('.date-to', {
+  const toPicker = flatpickr(dateToInput, {
     dateFormat: 'Y-m-d',
     onChange: function(selectedDates) {
       if (selectedDates[0]) {
         dateToValue = selectedDates[0]
-        document.querySelector('.date-to').value = formatDate(selectedDates[0])
+        dateToInput.value = formatDate(selectedDates[0])
+        if (dateFromValue && dateToValue < dateFromValue) {
+          dateFromValue = dateToValue
+          dateFromInput.value = formatDate(dateFromValue)
+        }
+        fromPicker.set('maxDate', dateToValue)
         if (dateFromValue) {
           filterByDate(dateFromValue, dateToValue)
         }
@@ -42,6 +55,16 @@ function formatDate(date) {
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
   return `${day}.${month}.${year}`
+}
+
+function resetFilters() {
+  dateFromValue = null
+  dateToValue = null
+  document.querySelector('.date-from').value = ''
+  document.querySelector('.date-to').value = ''
+  filteredPosts = [...allPosts]
+  visibleCount = POSTS_PER_LOAD
+  renderPosts()
 }
 
 function filterByDate(startDate, endDate) {
@@ -219,5 +242,10 @@ document.querySelectorAll('.view-btn').forEach(btn => {
 document.getElementById('load-more').addEventListener('click', loadMore)
 
 initDatePickers()
+
+document.querySelectorAll('.date-btn.clear').forEach(btn => {
+  btn.addEventListener('click', resetFilters)
+})
+
 loadPosts()
 initResizeListener()
