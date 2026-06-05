@@ -163,6 +163,20 @@ function changeView(view) {
 //   sortPosts(e.target.value)
 // })
 
+function handleResize() {
+  if (window.innerWidth < 480 && currentView === 'list') {
+    changeView('grid')
+  } else if (window.innerWidth >= 480 && currentView === 'grid') {
+    changeView('list')
+  }
+}
+
+function initResizeListener() {
+  window.addEventListener('resize', handleResize)
+  // Проверяем при загрузке
+  handleResize()
+}
+
 document.querySelectorAll('.view-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     changeView(e.currentTarget.dataset.view)
@@ -173,6 +187,6 @@ document.getElementById('load-more').addEventListener('click', () => {
   console.log('Load more posts')
 })
 
-
 initDatePickers()
 loadPosts()
+initResizeListener()
