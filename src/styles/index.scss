@@ -3,8 +3,8 @@
 @use './typography.scss' as *;
 
 body {
-  background: #f5f5f5;
-  color: #333;
+  background: $bg-body;
+  color: $text-primary;
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
@@ -42,9 +42,9 @@ body {
 }
 
 .header {
-  background-color: rgba(255, 255, 255, 0.67);
+  background-color: $header-bg;
   z-index: 9;
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12), inset 0 12px 24px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 24px 0 $shadow-color, inset 0 12px 24px 0 $shadow-color;
   padding: 6px 0 24px 0;
   position: relative;
 
@@ -125,7 +125,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  border: 1px solid #DEDEDE;
+  border: 1px solid $border-light;
   border-radius: 4px;
   height: 28px;
   width: 162px;
@@ -141,7 +141,7 @@ body {
   }
 
   .date-btn {
-    background-color: #EBEBEB;
+    background-color: $bg-btn;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -151,8 +151,8 @@ body {
     transition: color 0.2s;
 
     &.clear {
-      border-left: 1px solid #DEDEDE;
-      border-right: 1px solid #DEDEDE;
+      border-left: 1px solid $border-light;
+      border-right: 1px solid $border-light;
     }
   }
 }
@@ -169,7 +169,7 @@ body {
   transition: all 0.3s;
 
   &.active svg rect {
-    fill: #C8C7C7;
+    fill: $active-icon;
   }
 }
 
@@ -189,7 +189,7 @@ body {
   }
 
   .post__content {
-    background: #fff;
+    background: $bg-white;
     display: flex;
     flex-wrap: wrap;
     padding: 12px 12px 16px 12px;
@@ -232,7 +232,7 @@ body {
     display: flex;
     gap: 30px;
     padding-right: 79px;
-    background: #fff;
+    background: $bg-white;
   }
 
   .post__gallery {
@@ -331,12 +331,12 @@ body {
   display: block;
   margin: 0 auto 60px auto;
   padding: 8px 26px;
-  border: 1px solid #929292;
-  background: #fff;
+  border: 1px solid $btn-border;
+  background: $bg-white;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
-  color: #929292;
+  color: $btn-border;
   cursor: pointer;
   transition: all 0.3s;
   width: 115px;
@@ -448,8 +448,8 @@ body {
 }
 
 @media (max-width: 480px) {
-  body:before,
-  body:after {
+  body::before,
+  body::after {
     display: none;
   }
 
