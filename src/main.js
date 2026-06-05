@@ -7,6 +7,8 @@ let filteredPosts = []
 let dateFromValue = null
 let dateToValue = null
 let visibleCount = 9
+let fromPicker = null
+let toPicker = null
 
 const POSTS_PER_LOAD = 9
 
@@ -18,7 +20,7 @@ const viewButtons = document.querySelectorAll('.view-btn')
 const clearButtons = document.querySelectorAll('.date-btn.clear')
 
 function initDatePickers() {
-  const fromPicker = flatpickr(dateFromInput, {
+  fromPicker = flatpickr(dateFromInput, {
     dateFormat: 'd_m_Y',
     onChange(selectedDates) {
       if (!selectedDates[0]) return
@@ -38,7 +40,7 @@ function initDatePickers() {
     }
   })
 
-  const toPicker = flatpickr(dateToInput, {
+  toPicker = flatpickr(dateToInput, {
     dateFormat: 'd_m_Y',
     onChange(selectedDates) {
       if (!selectedDates[0]) return
@@ -261,5 +263,17 @@ clearButtons.forEach(btn => {
 })
 
 initDatePickers()
+
+const calendarButtons = document.querySelectorAll('.date-btn[aria-label="Open calendar"]')
+calendarButtons.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    if (index === 0 && fromPicker) {
+      fromPicker.open()
+    } else if (index === 1 && toPicker) {
+      toPicker.open()
+    }
+  })
+})
+
 loadPosts()
 initResizeListener()
