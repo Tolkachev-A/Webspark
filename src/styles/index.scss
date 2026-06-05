@@ -39,7 +39,7 @@ body {
 .container {
   max-width: 836px;
   margin: 0 auto;
- }
+}
 
 .header {
   background-color: rgba(255, 255, 255, 0.67);
@@ -109,8 +109,6 @@ body {
   }
 }
 
-
-
 .filters {
   display: flex;
   align-items: center;
@@ -142,11 +140,6 @@ body {
     width: 114px;
   }
 
-  .date-btn.clear{
-    border-left: 1px solid #DEDEDE;
-    border-right: 1px solid #DEDEDE;
-  }
-
   .date-btn {
     background-color: #EBEBEB;
     cursor: pointer;
@@ -156,7 +149,12 @@ body {
     width: 24px;
     height: 26px;
     transition: color 0.2s;
+
+    &.clear {
+      border-left: 1px solid #DEDEDE;
+      border-right: 1px solid #DEDEDE;
     }
+  }
 }
 
 .view-toggle {
@@ -170,13 +168,9 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 
-  &.active {
-    svg rect {
-      fill: #C8C7C7;
-    }
+  &.active svg rect {
+    fill: #C8C7C7;
   }
-
-
 }
 
 .main {
@@ -184,10 +178,15 @@ body {
 }
 
 .posts-grid {
-  gap: 16px 8px ;
+  gap: 16px 8px;
   margin-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
+
+  .post {
+    width: calc(25% - 6px);
+    flex-shrink: 0;
+  }
 
   .post__content {
     background: #fff;
@@ -211,7 +210,7 @@ body {
       font-size: 14px;
     }
 
-    .post__upload-date{
+    .post__upload-date {
       font-size: 12px;
     }
   }
@@ -220,29 +219,6 @@ body {
     flex-direction: column;
     gap: 6px;
     align-items: start;
-  }
-}
-
-.posts-grid .post {
-  width: calc(25% - 6px);
-  flex-shrink: 0;
-}
-
-@media (max-width: 1200px) {
-  .posts-grid .post {
-    width: calc(33.333% - 6px);
-  }
-}
-
-@media (max-width: 768px) {
-  .posts-grid .post {
-    width: calc(50% - 4px);
-  }
-}
-
-@media (max-width: 480px) {
-  .posts-grid .post {
-    width: 100%;
   }
 }
 
@@ -267,16 +243,21 @@ body {
 
   .post__content {
     padding-top: 16px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .post__image {
+    width: 86px;
+    height: 86px;
+    padding-top: 0;
   }
 }
 
 .post {
   &__stats,
-  &__meta{
+  &__meta {
     display: flex;
     gap: 18px;
     font-size: 14px;
@@ -287,86 +268,64 @@ body {
   &__messages {
     display: flex;
     align-items: center;
+
+    &::before {
+      content: '';
+      background-repeat: no-repeat;
+      display: inline-block;
+      margin-right: 6px;
+    }
   }
 
-  &__like:before,
-  &__messages:before {
-    background-repeat: no-repeat;
-    width: 15px;
-    display: inline-block;
-    height: 15px;
-    margin-right: 6px;
-  }
-
-  &__like:before {
-    content: '';
+  &__like::before {
     background-image: url("../assets/icons/like.svg");
-
+    width: 15px;
+    height: 15px;
   }
 
-  &__messages:before {
-    content: '';
+  &__messages::before {
     background-image: url("../assets/icons/messages.svg");
     width: 18px;
     height: 18px;
   }
 
- &__upload-date {
-   font-size: 14px;
+  &__upload-date {
+    font-size: 14px;
+  }
 
- }
-}
-
-
-
-
-
-.post__gallery {
-
-   gap: 8px;
-  width: 100%;
-}
-
-
-
-.post__image {
-  display: block;
-  width: 100%;
-  padding-top: 100%;
-  position: relative;
-  overflow: hidden;
-
-
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  &__gallery {
+    gap: 8px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: 16px;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
 }
-
-.posts-list .post__image {
-  width: 86px;
-  height: 86px;
-  padding-top: 0;
-}
-
-.post__content {
-  padding: 16px;
-  flex: 1;
-}
-
-
-
-.post__title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
 
 .load-more {
   display: block;
@@ -393,7 +352,17 @@ body {
   }
 }
 
+@media (max-width: 1200px) {
+  .posts-grid .post {
+    width: calc(33.333% - 6px);
+  }
+}
 
+@media (max-width: 992px) {
+  .posts-grid .post {
+    width: calc(50% - 4px);
+  }
+}
 
 @media (max-width: 768px) {
   .header {
@@ -412,11 +381,11 @@ body {
 
     &__logo {
       margin: 0 auto;
-    }
 
-    &__logo svg {
-      width: 80px;
-      height: 80px;
+      svg {
+        width: 80px;
+        height: 80px;
+      }
     }
 
     &__info {
@@ -515,7 +484,6 @@ body {
     }
 
     .stat {
-      margin: 0;
       font-size: 11px;
     }
   }
@@ -540,6 +508,3 @@ body {
     display: none;
   }
 }
-
-
-
