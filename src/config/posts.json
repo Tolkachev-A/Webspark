@@ -10,172 +10,171 @@
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/sky.jpg",
+        "srcJpg2x": "src/assets/images/sky-x2.jpg",
+        "srcWebp": "src/assets/images/sky.webp",
+        "srcWebp2x": "src/assets/images/sky-x2.webp"
       }
     },
     {
       "id": 2,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "3-06-2026",
       "uploadDate": "11-04-2016",
-      "likes": 128,
-      "comments": 31,
-      "shares": 67,
-      "views": 22,
+      "likes": 12,
+      "comments": 3,
+      "shares": 54,
+      "views": 12,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/sea.jpg",
+        "srcJpg2x": "src/assets/images/sea-x2.jpg",
+        "srcWebp": "src/assets/images/sea.webp",
+        "srcWebp2x": "src/assets/images/sea-x2.webp"
       }
     },
     {
       "id": 3,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "1-06-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/circle.jpg",
+        "srcJpg2x": "src/assets/images/circle-x2.jpg",
+        "srcWebp": "src/assets/images/circle.webp",
+        "srcWebp2x": "src/assets/images/circle-x2.webp"
       }
     },
     {
       "id": 4,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "29-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/horizon.jpg",
+        "srcJpg2x": "src/assets/images/horizon-x2.jpg",
+        "srcWebp": "src/assets/images/horizon.webp",
+        "srcWebp2x": "src/assets/images/horizon-x2.webp"
       }
     },
     {
       "id": 5,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "28-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/men.jpg",
+        "srcJpg2x": "src/assets/images/men-x2.jpg",
+        "srcWebp": "src/assets/images/men.webp",
+        "srcWebp2x": "src/assets/images/men-x2.webp"
       }
     },
     {
       "id": 6,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "27-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/little-house.jpg",
+        "srcJpg2x": "src/assets/images/little-house-x2.jpg",
+        "srcWebp": "src/assets/images/little-house.webp",
+        "srcWebp2x": "src/assets/images/little-house-x2.webp"
       }
     },
     {
       "id": 7,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "25-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/fireplace.jpg",
+        "srcJpg2x": "src/assets/images/fireplace-x2.jpg",
+        "srcWebp": "src/assets/images/fireplace.webp",
+        "srcWebp2x": "src/assets/images/fireplace-x2.webp"
       }
     },
     {
       "id": 8,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "24-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/fireplace.jpg",
+        "srcJpg2x": "src/assets/images/fireplace-x2.jpg",
+        "srcWebp": "src/assets/images/fireplace.webp",
+        "srcWebp2x": "src/assets/images/fireplace-x2.webp"
       }
     },
     {
       "id": 9,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "24-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/little-house.jpg",
+        "srcJpg2x": "src/assets/images/little-house-x2.jpg",
+        "srcWebp": "src/assets/images/little-house.webp",
+        "srcWebp2x": "src/assets/images/little-house-x2.webp"
       }
     },
     {
       "id": 10,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "22-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/men.jpg",
+        "srcJpg2x": "src/assets/images/men-x2.jpg",
+        "srcWebp": "src/assets/images/men.webp",
+        "srcWebp2x": "src/assets/images/men-x2.webp"
       }
     },
     {
       "id": 11,
       "title": "Today",
-      "date": "9-08-2016",
+      "date": "21-05-2026",
       "uploadDate": "11-04-2016",
       "likes": 128,
       "comments": 31,
       "shares": 67,
       "views": 22,
       "srcSet": {
-        "srcJpg": "src/assets/images/Rectangle.jpg",
-        "srcJpg2x": "src/assets/images/Rectangle-x2.jpg",
-        "srcWebp": "src/assets/images/Rectangle.webp",
-        "srcWebp2x": "src/assets/images/Rectangle-x2.webp"
+        "srcJpg": "src/assets/images/sky.jpg",
+        "srcJpg2x": "src/assets/images/sky-x2.jpg",
+        "srcWebp": "src/assets/images/sky.webp",
+        "srcWebp2x": "src/assets/images/sky-x2.webp"
       }
     }
   ]
 }
-

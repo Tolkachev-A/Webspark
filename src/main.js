@@ -185,23 +185,7 @@ function createPictureElement(srcSet) {
   `
 }
 
-// function sortPosts(sortType) {
-//   switch (sortType) {
-//     case 'date-desc':
-//       filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
-//       break
-//     case 'date-asc':
-//       filteredPosts.sort((a, b) => new Date(a.date) - new Date(b.date))
-//       break
-//     case 'likes':
-//       filteredPosts.sort((a, b) => b.likes - a.likes)
-//       break
-//     case 'comments':
-//       filteredPosts.sort((a, b) => b.comments - a.comments)
-//       break
-//   }
-//   renderPosts()
-// }
+
 
 function changeView(view) {
   currentView = view
@@ -213,16 +197,12 @@ function changeView(view) {
   renderPosts()
 }
 
-// document.getElementById('sort-select').addEventListener('change', (e) => {
-//   sortPosts(e.target.value)
-// })
+
 
 function handleResize() {
   if (window.innerWidth < 480 && currentView === 'list') {
     changeView('grid')
-  } else if (window.innerWidth >= 480 && currentView === 'grid') {
-    changeView('list')
-  }
+  } 
 }
 
 function initResizeListener() {

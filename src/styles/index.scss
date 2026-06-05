@@ -393,34 +393,7 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
-  .header {
-    .container {
-      padding: 0 40px;
-    }
 
-    &__top {
-      gap: 40px;
-    }
-
-    &__logo svg {
-      width: 100px;
-      height: 100px;
-    }
-
-    h1 {
-      font-size: 20px;
-    }
-
-    &__stats {
-      gap: 20px;
-    }
-  }
-
-  .main {
-    padding: 18px 30px 40px 30px;
-  }
-}
 
 @media (max-width: 768px) {
   .header {
