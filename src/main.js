@@ -6,6 +6,8 @@ let allPosts = []
 let filteredPosts = []
 let dateFromValue = null
 let dateToValue = null
+let visibleCount = 9
+const POSTS_PER_LOAD = 9
 
 function initDatePickers() {
   flatpickr('.date-from', {
@@ -54,6 +56,7 @@ function filterByDate(startDate, endDate) {
     const postDate = new Date(year, month - 1, day)
     return postDate >= startDate && postDate <= endDate
   })
+  visibleCount = POSTS_PER_LOAD
   renderPosts()
 }
 
@@ -62,15 +65,21 @@ function filterByDate(startDate, endDate) {
 async function loadPosts() {
   allPosts = postsData.posts
   filteredPosts = [...allPosts]
+  visibleCount = POSTS_PER_LOAD
   renderPosts()
 }
 
 function renderPosts() {
   const container = document.getElementById('posts-container')
+  const loadMoreBtn = document.getElementById('load-more')
+
+  // Ограничиваем количество отображаемых постов
+  const postsToShow = filteredPosts.slice(0, visibleCount)
 
   // Если посты уже отрендерены, просто меняем класс контейнера
-  if (container.children.length > 0 && container.children.length === filteredPosts.length) {
+  if (container.children.length > 0 && container.children.length === postsToShow.length) {
     container.className = `posts-${currentView}`
+    updateLoadMoreButton()
     return
   }
 
@@ -78,10 +87,33 @@ function renderPosts() {
   container.innerHTML = ''
   container.className = `posts-${currentView}`
 
-  filteredPosts.forEach(post => {
+  postsToShow.forEach(post => {
     const postElement = createPostElement(post)
     container.appendChild(postElement)
   })
+
+  updateLoadMoreButton()
+}
+
+function updateLoadMoreButton() {
+  const loadMoreBtn = document.getElementById('load-more')
+  if (visibleCount >= filteredPosts.length) {
+    loadMoreBtn.style.display = 'none'
+  } else {
+    loadMoreBtn.style.display = 'block'
+  }
+}
+
+function loadMore() {
+  const loadMoreBtn = document.getElementById('load-more')
+  loadMoreBtn.disabled = true
+  loadMoreBtn.textContent = 'Loading...'
+
+  setTimeout(() => {
+    visibleCount += POSTS_PER_LOAD
+    renderPosts()
+    loadMoreBtn.disabled = false
+  }, 3000)
 }
 
 function createPostElement(post) {
@@ -156,6 +188,7 @@ function changeView(view) {
     btn.classList.remove('active')
   })
   document.querySelector(`[data-view="${view}"]`).classList.add('active')
+  visibleCount = POSTS_PER_LOAD
   renderPosts()
 }
 
@@ -183,9 +216,7 @@ document.querySelectorAll('.view-btn').forEach(btn => {
   })
 })
 
-document.getElementById('load-more').addEventListener('click', () => {
-  console.log('Load more posts')
-})
+document.getElementById('load-more').addEventListener('click', loadMore)
 
 initDatePickers()
 loadPosts()
