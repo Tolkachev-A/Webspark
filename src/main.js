@@ -109,7 +109,7 @@ function createPostElement(post) {
         <span class="post__messages">${post.views}</span>
       </div>
 </div>
-       <div>
+       <div class="post__upload">
         <h2 class="post__title">Image upload</h2>
       <time class="post__upload-date">${post.uploadDate}</time>
 </div>
