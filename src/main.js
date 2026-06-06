@@ -54,11 +54,19 @@ function resetFilters() {
 
   if (dom.dateFromInput) {
     dom.dateFromInput.value = ''
-    dom.dateFromInput._flatpickr?.clear()
+    if (dom.dateFromInput._flatpickr) {
+      dom.dateFromInput._flatpickr.clear()
+      dom.dateFromInput._flatpickr.set('minDate', null)
+      dom.dateFromInput._flatpickr.set('maxDate', null)
+    }
   }
   if (dom.dateToInput) {
     dom.dateToInput.value = ''
-    dom.dateToInput._flatpickr?.clear()
+    if (dom.dateToInput._flatpickr) {
+      dom.dateToInput._flatpickr.clear()
+      dom.dateToInput._flatpickr.set('minDate', null)
+      dom.dateToInput._flatpickr.set('maxDate', null)
+    }
   }
 
   // Сбрасываем ограничения пикеров
@@ -83,7 +91,17 @@ function initDatePickers() {
     dateFormat: 'd_m_Y',
     allowInput: true,
     onChange: ([selectedDate]) => {
-      if (!selectedDate) return
+      if (!selectedDate) {
+        state.dateFromValue = null
+        if (state.dateToValue) {
+          applyDateFilter(null, state.dateToValue)
+        } else {
+          state.filteredPosts = [...state.allPosts]
+          state.visibleCount = POSTS_PER_LOAD
+          renderPosts()
+        }
+        return
+      }
 
       state.dateFromValue = selectedDate
 
@@ -104,7 +122,17 @@ function initDatePickers() {
     dateFormat: 'd_m_Y',
     allowInput: true,
     onChange: ([selectedDate]) => {
-      if (!selectedDate) return
+      if (!selectedDate) {
+        state.dateToValue = null
+        if (state.dateFromValue) {
+          applyDateFilter(state.dateFromValue, null)
+        } else {
+          state.filteredPosts = [...state.allPosts]
+          state.visibleCount = POSTS_PER_LOAD
+          renderPosts()
+        }
+        return
+      }
 
       state.dateToValue = selectedDate
 

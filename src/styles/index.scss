@@ -149,6 +149,8 @@ body {
     width: 24px;
     height: 26px;
     transition: color 0.2s;
+    position: relative;
+    z-index: 1;
 
     &.clear {
       border-left: 1px solid $border-light;
@@ -205,9 +207,12 @@ body {
     justify-content: space-between;
     width: 100%;
     margin-top: 25px;
+    align-items: center;
+    gap: 8px;
 
     .post__title {
       font-size: 14px;
+      margin-bottom: 0;
     }
 
     .post__upload-date {
@@ -381,11 +386,6 @@ body {
 
     &__logo {
       margin: 0 auto;
-
-      svg {
-        width: 80px;
-        height: 80px;
-      }
     }
 
     &__info {
@@ -396,12 +396,10 @@ body {
     }
 
     h1 {
-      font-size: 18px;
       margin: 0;
     }
 
     .badge {
-      font-size: 11px;
       padding: 4px 8px 5px 8px;
     }
 
@@ -415,7 +413,6 @@ body {
 
     .stat {
       margin: 0;
-      font-size: 12px;
     }
   }
 
@@ -448,8 +445,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  body::before,
-  body::after {
+  body::before {
     display: none;
   }
 
@@ -464,33 +460,11 @@ body {
       gap: 8px;
     }
 
-    &__logo svg {
-      width: 60px;
-      height: 60px;
-    }
-
     &__info {
       gap: 6px;
       margin-top: 6px;
     }
 
-    h1 {
-      font-size: 16px;
-    }
-
-    .badge {
-      font-size: 10px;
-      padding: 3px 6px 4px 6px;
-    }
-
-    &__stats {
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .stat {
-      font-size: 11px;
-    }
   }
 
   .filters {
